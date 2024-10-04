@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'blocs/list_bloc/listoperation_bloc.dart';
 import 'listscreen.dart';
 
 void main() {
@@ -18,7 +20,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-     home: Listscreen(),
+      home: BlocProvider(
+        create: (context) => ListoperationBloc(),
+        child: Listscreen(),
+      ),
     );
   }
 }
