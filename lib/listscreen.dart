@@ -66,13 +66,17 @@ class Listscreen extends StatelessWidget {
 
             itemBuilder: (BuildContext context, int index) {
               var task=state.tasks[index];
+             if(!task.isDone){
+               return ListTile(
 
-              return ListTile(
+                 title: Text(task.title),
+                 subtitle: Text(task.description),
+                 trailing: IconButton(onPressed: () {
+                   context.read<ListoperationBloc>().add(RemoveTask( t1: task));
+                 }, icon: Icon(Icons.remove_circle), ),
+               );
+             }
 
-                title: Text(task.title),
-                subtitle: Text(task.description),
-                trailing: IconButton(onPressed: () {  }, icon: Icon(Icons.remove_circle), ),
-              );
             },);
         },
       ),

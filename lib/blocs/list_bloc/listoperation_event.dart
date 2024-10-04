@@ -13,4 +13,10 @@ class AddTask extends ListoperationEvent{
     required this.description,
   });
 }
-class RemoveTask extends ListoperationEvent{}
+class RemoveTask extends ListoperationEvent{
+
+  final Tasks t1;
+  RemoveTask({
+    required this.t1,
+});
+}

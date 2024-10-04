@@ -14,5 +14,9 @@ class ListoperationBloc extends Bloc<ListoperationEvent, ListoperationState> {
       Bloc_tasks.add(t1);
       emit(state.copyWith(tasks: List.from(Bloc_tasks)));
     });
+    on<RemoveTask>((event, emit) {
+      Bloc_tasks.remove(event.t1);
+      emit(state.copyWith(tasks: List.from(Bloc_tasks)));
+    });
   }
 }
