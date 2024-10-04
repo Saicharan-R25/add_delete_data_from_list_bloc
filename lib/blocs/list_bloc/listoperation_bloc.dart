@@ -12,7 +12,7 @@ class ListoperationBloc extends Bloc<ListoperationEvent, ListoperationState> {
     on<AddTask>((event, emit) {
       Tasks t1 = Tasks(title: event.title,description: event.description,isDone: event.isDone);
       Bloc_tasks.add(t1);
-      emit(state.copyWith(tasks: Bloc_tasks));
+      emit(state.copyWith(tasks: List.from(Bloc_tasks)));
     });
   }
 }

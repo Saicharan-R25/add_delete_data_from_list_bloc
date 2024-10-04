@@ -106,9 +106,10 @@ class Listscreen extends StatelessWidget {
                 actions: [
                   TextButton(
                     onPressed: () {
-                      // Handle the data and close the dialog
+
                       print('First Input: ${_titleController.text}');
                       print('Second Input: ${_descriptionController.text}');
+                      context.read<ListoperationBloc>().add(AddTask(title:_titleController.text, description: _descriptionController.text));
                       Navigator.of(context).pop();
                     },
                     child: Text('Done'),
@@ -117,7 +118,8 @@ class Listscreen extends StatelessWidget {
               );
             },
           );
-          context.read<ListoperationBloc>().add(AddTask(title:_titleController.text, description: _descriptionController.text));        },
+          // context.read<ListoperationBloc>().add(AddTask(title:_titleController.text, description: _descriptionController.text));
+          },
         child: Icon(Icons.add),
       ),
     );

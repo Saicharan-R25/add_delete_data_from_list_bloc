@@ -1,6 +1,6 @@
+import 'package:add_delete_data_from_list_bloc/blocs/list_bloc/listoperation_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'blocs/list_bloc/listoperation_bloc.dart';
 import 'listscreen.dart';
 
 void main() {
@@ -13,16 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+    return BlocProvider(
+      create: (context) => ListoperationBloc(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: BlocProvider(
-        create: (context) => ListoperationBloc(),
-        child: Listscreen(),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: Listscreen(),
       ),
     );
   }
